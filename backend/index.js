@@ -1,11 +1,25 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 10000;
+const port = process.env.PORT || 10000;
 
-app.get('/api', (req, res) => {
-    res.json({ message: 'API is working!' });
+// Middleware
+app.use(express.json());
+
+// Define Routes
+app.get("/", (req, res) => {
+  res.json({ message: "API is working!" });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.get("/api/data", (req, res) => {
+  res.json({ message: "This is sample data!" });
 });
+
+app.get("/api/predict", (req, res) => {
+  res.json({ message: "Prediction result here!" });
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
+
