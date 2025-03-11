@@ -1,9 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 
-const app = express(); // ✅ Initialize app BEFORE using middleware
+const app = express(); // ✅ Initialize app first
 
-app.use(cors()); // ✅ Now it's safe to use
+app.use(cors());
 app.use(express.json());
 
 app.get("/api", (req, res) => {
@@ -16,18 +16,15 @@ app.post("/api/predict", (req, res) => {
   if (!data) {
     return res.status(400).json({ error: "No data provided" });
   }
-  // Simulate prediction
+  // Simulated prediction
   res.json({ prediction: "Prediction result here!" });
 });
 
-// Start server
+// ✅ Fix: Define port properly
 const PORT = process.env.PORT || 10000;
-app.listen(port, () => { ... });
+
+app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-// Start the server
-app.listen(port, () => { ... });
-  console.log(`Server running on port ${port}`);
-});
 
