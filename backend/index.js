@@ -1,23 +1,29 @@
-const cors = require("cors");
-app.use(cors());
 const express = require("express");
-const app = express();
-const port = process.env.PORT || 10000;
+const cors = require("cors");
 
-// Middleware
+const app = express(); // ✅ Initialize app BEFORE using middleware
+
+app.use(cors()); // ✅ Now it's safe to use
 app.use(express.json());
 
-// Define Routes
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json({ message: "API is working!" });
 });
 
-app.get("/api/data", (req, res) => {
-  res.json({ message: "This is sample data!" });
+// Example Prediction Route
+app.post("/api/predict", (req, res) => {
+  const { data } = req.body;
+  if (!data) {
+    return res.status(400).json({ error: "No data provided" });
+  }
+  // Simulate prediction
+  res.json({ prediction: "Prediction result here!" });
 });
 
-app.get("/api/predict", (req, res) => {
-  res.json({ message: "Prediction result here!" });
+// Start server
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 // Start the server
