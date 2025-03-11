@@ -1,12 +1,11 @@
-const express = require("express");
+const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 10000;
 
-const PORT = process.env.PORT || 8080;
-
-app.get("/", (req, res) => {
-  res.send("Smart Fishing Assistant API is running!");
+app.get('/api', (req, res) => {
+    res.json({ message: 'API is working!' });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
