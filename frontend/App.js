@@ -1,10 +1,9 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import FishingPrediction from "../components/FishingPrediction";
 
-export default function App() {
-  return (
-    <View>
-      <Text>Smart Fishing Assistant</Text>
-    </View>
-  );
+export default function Home() {
+    return (
+        <div>
+            <FishingPrediction />
+        </div>
+    );
 }
