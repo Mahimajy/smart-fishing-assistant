@@ -1,12 +1,5 @@
-import PredictionComponent from "../components/PredictionComponent";
-
 function Home() {
-    return (
-        <div>
-            <h1>Smart Fishing Assistant</h1>
-            <PredictionComponent />
-        </div>
-    );
+    return <h1>Hello, Next.js is deployed!</h1>;
 }
 
 export default Home;
