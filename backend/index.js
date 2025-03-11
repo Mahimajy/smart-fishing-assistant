@@ -22,12 +22,12 @@ app.post("/api/predict", (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => {
+app.listen(port, () => { ... });
   console.log(`Server running on port ${PORT}`);
 });
 
 // Start the server
-app.listen(port, () => {
+app.listen(port, () => { ... });
   console.log(`Server running on port ${port}`);
 });
 
